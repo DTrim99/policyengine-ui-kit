@@ -32,7 +32,12 @@ Together these states hold 173 of the 435 seats.
 - **Missouri:** it keeps its 2022 map. The U.S. Supreme Court required that map for the 2026 election, and the November 2026 referendum on the 2025 map failed. Census regenerated its 120th file on October 7, 2026 to match.
 - **Virginia:** its new map was struck down, so its previous map stands.
 
-Seat counts come from the 2020 apportionment, so the 436 district IDs are the same as for the 119th. That count is 435 districts plus DC's delegate. In the nine states, though, the same ID now covers a different area. **Draw results on the boundaries they were computed with:**
+Each district ID follows its state's new numbering. In the 120th files, `TX-35` is the area Texas's new map numbers 35.
+
+- **The list of IDs doesn't change.** Seat counts come from the 2020 apportionment, so each state's IDs still run from 01 to its seat count: 436 in all, counting DC's delegate.
+- **In the nine states, an ID now names a different area.** 40% of the new TX-35's 2020 population was in the old TX-28, and only 10% was in the old TX-35.
+
+**Draw results on the boundaries they were computed with:**
 
 - `congress={119}` (the default) for results from 119th-Congress data;
 - `congress={120}` for results from 120th-Congress data.
