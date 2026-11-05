@@ -1,4 +1,4 @@
-import type { CongressNumber, GeoJSONFeatureCollection } from '../types';
+import type { CongressNumber, CongressionalDistrictMembers, GeoJSONFeatureCollection } from '../types';
 
 type UKConstituencyHex = Record<string, { x: number; y: number; gss: string }>;
 
@@ -25,6 +25,16 @@ export async function loadCongressionalDistrictsHex(
       ? await import('./congressionalDistrictsHex120.json')
       : await import('./congressionalDistrictsHex.json');
   return mod.default as GeoJSONFeatureCollection;
+}
+
+/**
+ * Members-elect of the 120th Congress by district, with race calls as of the file's `as_of`
+ * date (see data-sources/congressional-districts). Show "Not yet called" for districts whose
+ * status says so.
+ */
+export async function loadCongressionalDistrictMembers120(): Promise<CongressionalDistrictMembers> {
+  const mod = await import('./congressionalDistrictMembers120.json');
+  return mod.default as CongressionalDistrictMembers;
 }
 
 export async function loadUKConstituenciesGeo(): Promise<GeoJSONFeatureCollection> {

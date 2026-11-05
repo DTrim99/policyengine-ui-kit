@@ -5,7 +5,11 @@ import geo119 from '../../src/visualization/data/congressionalDistrictsGeo.json'
 import geo120 from '../../src/visualization/data/congressionalDistrictsGeo120.json';
 import hex119 from '../../src/visualization/data/congressionalDistrictsHex.json';
 import hex120 from '../../src/visualization/data/congressionalDistrictsHex120.json';
-import type { GeoJSONFeatureCollection } from '../../src/visualization/types';
+import members120 from '../../src/visualization/data/congressionalDistrictMembers120.json';
+import type {
+  CongressionalDistrictMembers,
+  GeoJSONFeatureCollection,
+} from '../../src/visualization/types';
 
 const ids = (collection: unknown) =>
   (collection as GeoJSONFeatureCollection).features.map((f) => f.properties.DISTRICT_ID as string);
@@ -44,6 +48,27 @@ describe('120th Congress district data', () => {
         expect(f.geometry).toEqual(old.get(f.properties.DISTRICT_ID)?.geometry);
       }
     }
+  });
+
+  it('has a member entry for every district, with a name and party once the race is called', () => {
+    const members = members120 as CongressionalDistrictMembers;
+    const mapIds = new Set(ids(geo120).filter((id) => id !== 'PR-98'));
+    expect(new Set(Object.keys(members.districts))).toEqual(mapIds);
+    const entries = Object.values(members.districts);
+    for (const m of entries) {
+      expect(m.label).toMatch(/congressional district$/);
+      if (m.status === 'called') {
+        expect(m.name).toBeTruthy();
+        expect(['D', 'R', 'I', 'L', 'G']).toContain(m.party);
+      } else {
+        expect(m.status).toBe('not_yet_called');
+        expect(m.name).toBeNull();
+        expect(m.party).toBeNull();
+      }
+    }
+    expect(entries.filter((m) => m.status === 'called')).toHaveLength(members.called);
+    expect(members.called + members.not_yet_called).toBe(436);
+    expect(members.source_url).toMatch(/oldid=\d+$/);
   });
 
   it('lists the same districts in the key table as on the map, excluding Puerto Rico', () => {

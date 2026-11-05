@@ -7,6 +7,8 @@ The scripts write two files into `src/visualization/data/`, which ship with the 
 - `congressionalDistrictsGeo120.json`: district boundaries for web maps. `loadCongressionalDistrictsGeo(120)` and `<USDistrictChoroplethMap congress={120} />` read it.
 - `congressionalDistrictsHex120.json`: the equal-area hex map. `loadCongressionalDistrictsHex(120)` reads it.
 
+- `congressionalDistrictMembers120.json`: each district's member-elect (name and party) or "not yet called". `loadCongressionalDistrictMembers120()` reads it.
+
 They also write tables to `cd120/`, for analyses that need to allocate county or tract data to districts. Every table uses 2020 Census populations.
 
 ## What changed from the 119th Congress
@@ -60,7 +62,22 @@ python build_tables.py     # cd120/*.csv
 bash build_geometry.sh     # src/visualization/data/congressionalDistrictsGeo120.json
 python build_hex.py        # src/visualization/data/congressionalDistrictsHex120.json
 python check_geometry.py   # cd120/geometry_check.json
+python fetch_members.py    # src/visualization/data/congressionalDistrictMembers120.json
 ```
+
+## Members-elect
+
+`fetch_members.py` reads Wikipedia's "2026 United States House of Representatives elections" page, which records race calls as news organizations make them.
+
+- **Called races.** A candidate marked as the winner gives the district its name and party letter: D, R, I, L or G. Minnesota's Democratic–Farmer–Labor Party shows as D, and `party_name` keeps its full name.
+- **Uncalled races.** A district with no marked winner is `not_yet_called`.
+- **Provenance.** The file records when the page was read and which revision it read.
+
+The first snapshot, read November 5, 2026, has 406 races called (253 D, 153 R) and 30 not yet called. News totals that morning were 252 D, 158 R and 25 uncalled.
+
+- **Until certification:** rerun the script until every race is called and certified.
+- **From January 3, 2027:** switch to the sitting members in [unitedstates/congress-legislators](https://github.com/unitedstates/congress-legislators) (CC0).
+- **Spot checks:** check close races against the state's certified results.
 
 ## How the boundary file is built
 
