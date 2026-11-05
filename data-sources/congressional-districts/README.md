@@ -2,11 +2,10 @@
 
 This folder builds the 120th Congress district files. The 120th Congress is seated January 3, 2027. This folder isn't part of the npm package.
 
-The scripts write two files into `src/visualization/data/`, which ship with the package:
+The scripts write three files into `src/visualization/data/`, which ship with the package:
 
 - `congressionalDistrictsGeo120.json`: district boundaries for web maps. `loadCongressionalDistrictsGeo(120)` and `<USDistrictChoroplethMap congress={120} />` read it.
 - `congressionalDistrictsHex120.json`: the equal-area hex map. `loadCongressionalDistrictsHex(120)` reads it.
-
 - `congressionalDistrictMembers120.json`: each district's member-elect (name and party) or "not yet called". `loadCongressionalDistrictMembers120()` reads it.
 
 They also write tables to `cd120/`, for analyses that need to allocate county or tract data to districts. Every table uses 2020 Census populations.
