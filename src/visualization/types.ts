@@ -1,5 +1,11 @@
 export type MapVisualizationType = 'geographic' | 'hex';
 
+/**
+ * The Congress whose district boundaries a US district map draws. Draw the boundaries the
+ * data was computed on: 119th-Congress results on the 119th map, 120th on the 120th.
+ */
+export type CongressNumber = 119 | 120;
+
 export interface ChoroplethDataPoint {
   geoId: string;
   label: string;

@@ -1,5 +1,6 @@
 export type {
   MapVisualizationType,
+  CongressNumber,
   ChoroplethDataPoint,
   HexMapDataPoint,
   ColorScaleConfig,
