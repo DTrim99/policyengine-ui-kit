@@ -6,7 +6,7 @@ The scripts write three files into `src/visualization/data/`, which ship with th
 
 - `congressionalDistrictsGeo120.json`: district boundaries for web maps. `loadCongressionalDistrictsGeo(120)` and `<USDistrictChoroplethMap congress={120} />` read it.
 - `congressionalDistrictsHex120.json`: the equal-area hex map. `loadCongressionalDistrictsHex(120)` reads it.
-- `congressionalDistrictMembers120.json`: each district's member-elect (name and party) or "not yet called". `loadCongressionalDistrictMembers120()` reads it.
+- `congressionalDistrictMembers120.json`: each district's member-elect (name and party) or "not yet called". `loadCongressionalDistrictMembers(120)` reads it.
 
 They also write tables to `cd120/`, for analyses that need to allocate county or tract data to districts. Every table uses 2020 Census populations.
 
@@ -44,13 +44,17 @@ Each district ID follows its state's new numbering. In the 120th files, `TX-35` 
 
 ## Sources
 
-`sources.json` lists every input with its URL and SHA-256. `scripts/download_sources.sh` downloads them and checks the hashes. The inputs are:
+`sources.json` lists every input with its URL and SHA-256. `scripts/download_sources.sh` downloads them and checks the hashes.
+
+Census's shapefile zips are pinned by the files inside them (`.shp`, `.shx`, `.dbf` and `.prj`), not by the zip. Census republishes zips with new timestamps and the same files inside: it did so for the nine TIGER/Line 2026 files on November 9, 2026, which changed every zip's hash. A rebuild from the republished files gives the same boundaries; two districts, CA-38 and CA-40, differ by one shared border vertex, a simplification tie-break between machines.
+
+The inputs are:
 
 - **Census block equivalency files** for the 119th and 120th Congresses: every 2020 block's district. The 120th file is the October 7, 2026 version.
 - **2020 Census redistricting data (P.L. 94-171), all 50 states and DC:** every block's total population (P1_001N). The national total is 331,449,281 people in 5,769,942 populated blocks.
 - **TIGER/Line 2026 120th Congress shapefiles** for the nine redrawn states. They cover state plans confirmed by May 31, 2026, and the tract check below shows they match the block files, including Alabama's map enacted on June 2.
 - **Census 2024 cartographic boundary files (1:500k):** state outlines, for clipping to the shoreline, and the 119th districts, used for the states that didn't change. Census hasn't yet published a 120th cartographic boundary file. When it does, rebuild from it.
-- **The Downballot's congressional district hexmap v3.2 (2026),** CC BY 4.0. It moves the hexes for CA, FL, NC, OH, TN, TX and UT. The Downballot left Alabama, Louisiana and Missouri as they were. **Credit "The Downballot" wherever the hex map is shown.**
+- **The Downballot's congressional district hexmap v3.2 (2026),** CC BY 4.0. It moves the hexes for CA, FL, NC, OH, TN, TX and UT. The Downballot left Alabama, Louisiana and Missouri as they were. **Credit "The Downballot" wherever the hex map is shown.** The download URL is a Google Drive link. If it stops working, download v3.2 from The Downballot's [data page](https://www.the-downballot.com/p/data) and check it against the SHA-256 in `sources.json`.
 - **The 2020 Census tract Gazetteer,** for tract internal points. It is used only for the boundary check.
 
 ## How to rebuild
@@ -74,11 +78,15 @@ python fetch_members.py    # src/visualization/data/congressionalDistrictMembers
 `fetch_members.py` reads Wikipedia's "2026 United States House of Representatives elections" page, which records race calls as news organizations make them.
 
 - **Called races.** A candidate marked as the winner gives the district its name and party letter: D, R, I, L or G. Minnesota's Democratic–Farmer–Labor Party shows as D, and `party_name` keeps its full name.
+- **Fusion tickets.** New York and Connecticut candidates who run on several party lines appear as "Democratic/WFP" or "Republican/Cons.". The first party, the candidate's own, gives the letter.
 - **Uncalled races.** A district with no marked winner is `not_yet_called`.
 - **Provenance.** The file records when the page was read and which revision it read.
 
-The first snapshot, read November 5, 2026, has 406 races called (253 D, 153 R) and 30 not yet called. News totals that morning were 252 D, 158 R and 25 uncalled.
+**Snapshots:**
+- **Packaged now:** read November 23, 2026 (revision 1387342200). 433 races called (260 D, 173 R); 3 not yet called (LA-05, LA-06, MN-01).
+- **First:** read November 5, 2026. 406 races called (253 D, 153 R) and 30 not yet called. News totals that morning were 252 D, 158 R and 25 uncalled.
 
+- **Before every merge to main:** rerun the script. A merge with a changelog fragment publishes to npm, so the snapshot in the merge is the one users get.
 - **Until certification:** rerun the script until every race is called and certified.
 - **From January 3, 2027:** switch to the sitting members in [unitedstates/congress-legislators](https://github.com/unitedstates/congress-legislators) (CC0).
 - **Spot checks:** check close races against the state's certified results.
@@ -88,12 +96,24 @@ The first snapshot, read November 5, 2026, has 406 races called (253 D, 153 R) a
 1. **Redrawn states:** the nine states' TIGER/Line 2026 districts are clipped to the 1:500k state outlines.
 2. **Other states:** every other state, DC and Puerto Rico keep their 1:500k 119th districts.
 3. **Simplification:** the combined layer has gaps of up to 20 km² filled, and is simplified to 2% of its vertices as one topology, so state borders shared with unchanged neighbors stay aligned. Coordinates are rounded to 4 decimal places, about 11 m.
+4. **Winding:** `scripts/rewind_for_d3.py` winds exterior rings clockwise, as in the 119th file. mapshaper writes them counterclockwise (the RFC 7946 order), and d3-geo reads a counterclockwise ring as the whole globe except the district. The tests check every shape in all four map files.
 
-The result has the 119th file's properties and keys:
+**Properties.** The result uses the 119th file's key, but its other properties differ:
 
-- `DISTRICT_ID` is `ST-NN`, with at-large states and DC as `-01` and Puerto Rico as `PR-98`.
-- It adds `CD120FP`, `GEOID`, `GEOIDFQ` (`5002000US` + GEOID), `CDSESSN` ("120"), `CONGRESS` (120), `STUSPS`, `STATE_NAME` and `NAMELSAD`.
-- It has 437 features: 436 districts and Puerto Rico.
+- **Same as the 119th file:**
+  - `DISTRICT_ID` is `ST-NN`, with at-large states and DC as `-01` and Puerto Rico as `PR-98`;
+  - also `STATEFP`, `GEOID`, `GEOIDFQ` (`5002000US` + GEOID), `CDSESSN` ("120") and `NAMELSAD`.
+- **New:** `CD120FP` (in place of `CD119FP`), `CONGRESS` (120), `STUSPS` and `STATE_NAME`.
+- **Not carried over:** `ALAND`, `AWATER`, `LSAD` and `CD119FP`. For land and water areas, use the TIGER/Line files.
+- **Features:** 437, which is 436 districts and Puerto Rico.
+
+**Validity.** Three shapes, GA-14, TX-16 and UT-04, each have one tiny self-intersection: a bow-tie under 0.0003% of the district's area. Rounding to 4 decimals at output creates them, after the final clean.
+- d3 draws them normally.
+- For GIS work such as point-in-polygon lookups, repair them first (for example with shapely's `make_valid`), or use the block-based tables in `cd120/`.
+- Other fixes didn't remove them:
+  - a second clean pass fixed these three and created two others;
+  - mapshaper's `-snap fix-geometry` didn't catch them;
+  - 5-decimal output left one and made the file 9% larger.
 
 **The boundary check (`cd120/geometry_check.json`):**
 
