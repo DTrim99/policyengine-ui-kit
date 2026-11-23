@@ -1,17 +1,17 @@
 {
  "congress": 120,
- "as_of": "2026-11-05T21:11Z",
+ "as_of": "2026-11-23T14:58Z",
  "source": "Wikipedia, \"2026 United States House of Representatives elections\", race calls as reported there",
- "source_url": "https://en.wikipedia.org/w/index.php?title=2026_United_States_House_of_Representatives_elections&oldid=1383960101",
- "called": 406,
- "not_yet_called": 30,
+ "source_url": "https://en.wikipedia.org/w/index.php?title=2026_United_States_House_of_Representatives_elections&oldid=1387342200",
+ "called": 433,
+ "not_yet_called": 3,
  "districts": {
   "AK-01": {
    "label": "Alaska's at-large congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Nick Begich III",
+   "party": "R",
+   "party_name": "Republican"
   },
   "AL-01": {
    "label": "Alabama's 1st congressional district",
@@ -99,10 +99,10 @@
   },
   "AZ-02": {
    "label": "Arizona's 2nd congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Eli Crane",
+   "party": "R",
+   "party_name": "Republican"
   },
   "AZ-03": {
    "label": "Arizona's 3rd congressional district",
@@ -120,10 +120,10 @@
   },
   "AZ-05": {
    "label": "Arizona's 5th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Mark Lamb",
+   "party": "R",
+   "party_name": "Republican"
   },
   "AZ-06": {
    "label": "Arizona's 6th congressional district",
@@ -141,10 +141,10 @@
   },
   "AZ-08": {
    "label": "Arizona's 8th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Abraham Hamadeh",
+   "party": "R",
+   "party_name": "Republican"
   },
   "AZ-09": {
    "label": "Arizona's 9th congressional district",
@@ -176,10 +176,10 @@
   },
   "CA-04": {
    "label": "California's 4th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Eric Jones",
+   "party": "D",
+   "party_name": "Democratic"
   },
   "CA-05": {
    "label": "California's 5th congressional district",
@@ -197,10 +197,10 @@
   },
   "CA-07": {
    "label": "California's 7th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Doris Matsui",
+   "party": "D",
+   "party_name": "Democratic"
   },
   "CA-08": {
    "label": "California's 8th congressional district",
@@ -246,10 +246,10 @@
   },
   "CA-14": {
    "label": "California's 14th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Aisha Wahab",
+   "party": "D",
+   "party_name": "Democratic"
   },
   "CA-15": {
    "label": "California's 15th congressional district",
@@ -309,10 +309,10 @@
   },
   "CA-23": {
    "label": "California's 23rd congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Jay Obernolte",
+   "party": "R",
+   "party_name": "Republican"
   },
   "CA-24": {
    "label": "California's 24th congressional district",
@@ -428,10 +428,10 @@
   },
   "CA-40": {
    "label": "California's 40th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Ken Calvert",
+   "party": "R",
+   "party_name": "Republican"
   },
   "CA-41": {
    "label": "California's 41st congressional district",
@@ -533,17 +533,17 @@
   },
   "CO-03": {
    "label": "Colorado's 3rd congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Jeff Hurd",
+   "party": "R",
+   "party_name": "Republican"
   },
   "CO-04": {
    "label": "Colorado's 4th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Eileen Laubacher",
+   "party": "D",
+   "party_name": "Democratic"
   },
   "CO-05": {
    "label": "Colorado's 5th congressional district",
@@ -666,10 +666,10 @@
   },
   "FL-07": {
    "label": "Florida's 7th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Ryan Elijah",
+   "party": "R",
+   "party_name": "Republican"
   },
   "FL-08": {
    "label": "Florida's 8th congressional district",
@@ -680,10 +680,10 @@
   },
   "FL-09": {
    "label": "Florida's 9th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Darren Soto",
+   "party": "D",
+   "party_name": "Democratic"
   },
   "FL-10": {
    "label": "Florida's 10th congressional district",
@@ -799,22 +799,22 @@
   },
   "FL-26": {
    "label": "Florida's 26th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Mario Díaz-Balart",
+   "party": "R",
+   "party_name": "Republican"
   },
   "FL-27": {
    "label": "Florida's 27th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "María Elvira Salazar",
+   "party": "R",
+   "party_name": "Republican"
   },
   "FL-28": {
    "label": "Florida's 28th congressional district",
    "status": "called",
-   "name": "Carlos A. Giménez",
+   "name": "Carlos A. Gimenez",
    "party": "R",
    "party_name": "Republican"
   },
@@ -1394,10 +1394,10 @@
   },
   "ME-02": {
    "label": "Maine's 2nd congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Paul LePage",
+   "party": "R",
+   "party_name": "Republican"
   },
   "MI-01": {
    "label": "Michigan's 1st congressional district",
@@ -1660,10 +1660,10 @@
   },
   "NC-03": {
    "label": "North Carolina's 3rd congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Raymond Smith Jr.",
+   "party": "D",
+   "party_name": "Democratic"
   },
   "NC-04": {
    "label": "North Carolina's 4th congressional district",
@@ -1674,10 +1674,10 @@
   },
   "NC-05": {
    "label": "North Carolina's 5th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Chuck Hubbard",
+   "party": "D",
+   "party_name": "Democratic"
   },
   "NC-06": {
    "label": "North Carolina's 6th congressional district",
@@ -1688,17 +1688,17 @@
   },
   "NC-07": {
    "label": "North Carolina's 7th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "David Rouzer",
+   "party": "R",
+   "party_name": "Republican"
   },
   "NC-08": {
    "label": "North Carolina's 8th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Mark Harris",
+   "party": "R",
+   "party_name": "Republican"
   },
   "NC-09": {
    "label": "North Carolina's 9th congressional district",
@@ -1709,10 +1709,10 @@
   },
   "NC-10": {
    "label": "North Carolina's 10th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Pat Harrigan",
+   "party": "R",
+   "party_name": "Republican"
   },
   "NC-11": {
    "label": "North Carolina's 11th congressional district",
@@ -1738,7 +1738,7 @@
   "NC-14": {
    "label": "North Carolina's 14th congressional district",
    "status": "called",
-   "name": "Lakesha Womack",
+   "name": "LaKesha Womack",
    "party": "D",
    "party_name": "Democratic"
   },
@@ -1926,10 +1926,10 @@
   },
   "NY-02": {
    "label": "New York's 2nd congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Andrew Garbarino",
+   "party": "R",
+   "party_name": "Republican"
   },
   "NY-03": {
    "label": "New York's 3rd congressional district",
@@ -2059,10 +2059,10 @@
   },
   "NY-21": {
    "label": "New York's 21st congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Anthony Constantino",
+   "party": "R",
+   "party_name": "Republican"
   },
   "NY-22": {
    "label": "New York's 22nd congressional district",
@@ -2423,10 +2423,10 @@
   },
   "SC-02": {
    "label": "South Carolina's 2nd congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Joe Wilson",
+   "party": "R",
+   "party_name": "Republican"
   },
   "SC-03": {
    "label": "South Carolina's 3rd congressional district",
@@ -2528,10 +2528,10 @@
   },
   "TN-09": {
    "label": "Tennessee's 9th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Brent Taylor",
+   "party": "R",
+   "party_name": "Republican"
   },
   "TX-01": {
    "label": "Texas's 1st congressional district",
@@ -2934,17 +2934,17 @@
   },
   "WA-04": {
    "label": "Washington's 4th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Amanda McKinney",
+   "party": "R",
+   "party_name": "Republican"
   },
   "WA-05": {
    "label": "Washington's 5th congressional district",
-   "status": "not_yet_called",
-   "name": null,
-   "party": null,
-   "party_name": null
+   "status": "called",
+   "name": "Michael Baumgartner",
+   "party": "R",
+   "party_name": "Republican"
   },
   "WA-06": {
    "label": "Washington's 6th congressional district",

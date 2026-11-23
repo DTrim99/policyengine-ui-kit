@@ -83,8 +83,19 @@ def winner_name(line):
 
 
 def winner_party(line):
-    m = re.search(r"\(([^()]+?)\)\s*(?:[\d.]+%|<|\{|$)", line.strip() + " ")
+    # The party in parentheses is followed by a vote share, a reference, a template, an italic
+    # note such as ''Uncontested'', or the end of the line.
+    m = re.search(r"\(([^()]+?)\)\s*(?:[\d.]+%|<|\{|''|$)", line.strip() + " ")
     return m.group(1).strip() if m else None
+
+
+def main_party(label):
+    """The candidate's own party from a fusion ticket label.
+
+    New York and Connecticut candidates can run on several party lines, and the page writes
+    them as "Democratic/WFP" or "Republican/Cons.", with the candidate's own party first.
+    """
+    return label.split("/")[0].strip() if label else label
 
 
 def parse(wikitext):
@@ -106,7 +117,7 @@ def parse(wikitext):
                 continue
             if len(winners) > 1:
                 problems.append(f"{district_id}: {len(winners)} candidates marked as winners")
-            person, party_word = winner_name(winners[0]), winner_party(winners[0])
+            person, party_word = winner_name(winners[0]), main_party(winner_party(winners[0]))
             letter, party_name = PARTIES.get(party_word, (None, party_word))
             if not person or not letter:
                 problems.append(f"{district_id}: could not read the winner from {winners[0][:140]!r}")
