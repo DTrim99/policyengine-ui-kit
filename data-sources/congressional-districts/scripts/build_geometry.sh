@@ -44,3 +44,7 @@ $MAPSHAPER \
   -clean target=districts \
   -sort 'DISTRICT_ID' target=districts \
   -o "$OUT" format=geojson precision="$PRECISION" target=districts
+
+# mapshaper writes exterior rings counterclockwise (RFC 7946). d3-geo reads those as the whole
+# globe minus the district, so wind them clockwise, as in the 119th file.
+python3 "$HERE/scripts/rewind_for_d3.py" "$OUT"

@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { geoAlbersUsa, geoArea, geoEquirectangular, geoPath, type GeoProjection } from 'd3-geo';
 import { describe, expect, it } from 'vitest';
 import geo119 from '../../src/visualization/data/congressionalDistrictsGeo.json';
 import geo120 from '../../src/visualization/data/congressionalDistrictsGeo120.json';
@@ -16,6 +17,53 @@ const ids = (collection: unknown) =>
 
 // The states whose hexes The Downballot moved in hexmap v3.2 (2026).
 const HEX_MOVED = new Set(['CA', 'FL', 'NC', 'OH', 'TN', 'TX', 'UT']);
+
+// d3-geo reads the GeoJSON as is; the casts only drop the JSON modules' literal types.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const asD3 = (collection: unknown) => collection as any;
+
+// Each map with the projection USDistrictChoroplethMap draws it with.
+const MAPS = [
+  { name: 'geographic', projection: geoAlbersUsa, files: { 119: geo119, 120: geo120 } },
+  { name: 'hex', projection: geoEquirectangular, files: { 119: hex119, 120: hex120 } },
+] as const;
+
+describe('US district map files', () => {
+  it('wind every shape so d3-geo draws the district, not the rest of the globe', () => {
+    for (const map of MAPS) {
+      for (const [congress, collection] of Object.entries(map.files)) {
+        // A ring wound the wrong way encloses everything but the district: more than half the sphere.
+        const inverted = (collection as GeoJSONFeatureCollection).features
+          .filter((f) => geoArea(asD3(f)) >= 2 * Math.PI)
+          .map((f) => f.properties.DISTRICT_ID);
+        expect(inverted, `${map.name} map, ${congress}th Congress`).toEqual([]);
+      }
+    }
+  });
+
+  it('draw the 120th maps over the same area as the 119th maps', () => {
+    for (const map of MAPS) {
+      const projection: GeoProjection = map.projection().fitExtent(
+        [
+          [20, 20],
+          [780, 480],
+        ],
+        asD3(map.files[119]),
+      );
+      const path = geoPath(projection);
+      const [[x0, y0], [x1, y1]] = path.bounds(asD3(map.files[119]));
+      const [[a0, b0], [a1, b1]] = path.bounds(asD3(map.files[120]));
+      for (const [got, want] of [
+        [a0, x0],
+        [b0, y0],
+        [a1, x1],
+        [b1, y1],
+      ]) {
+        expect(Math.abs(got - want), `${map.name} map bounds`).toBeLessThan(2);
+      }
+    }
+  });
+});
 
 describe('120th Congress district data', () => {
   it('has the same district IDs as the 119th boundaries, one shape each', () => {

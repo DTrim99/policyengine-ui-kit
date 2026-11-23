@@ -12,6 +12,8 @@ import json
 import os
 import subprocess
 
+from rewind_for_d3 import rewind_geometry
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 WORK = os.environ.get("WORK", os.path.join(HERE, "..", "work"))
 DATA = os.path.join(HERE, "..", "..", "..", "src", "visualization", "data")
@@ -38,7 +40,8 @@ for feature in current["features"]:
     if props["STATEAB"] in MOVED_IN_V32:
         new = v32[props["GEOID"]]
         assert new["properties"]["CDLABEL"] == props["CDLABEL"], props["GEOID"]
-        feature["geometry"] = new["geometry"]
+        # mapshaper writes the v3.2 hexes counterclockwise; d3-geo needs the 119th file's clockwise order.
+        feature["geometry"] = rewind_geometry(new["geometry"])
         replaced += 1
 
 assert len(current["features"]) == 436
