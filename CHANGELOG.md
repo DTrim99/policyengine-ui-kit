@@ -1,3 +1,19 @@
+## [0.13.0] - 2026-11-18
+
+### Added
+
+- Add a Tools menu to the PolicyEngine header, right after Research, built by the same rule as policyengine.org's: the PolicyEngine app first, then every calculator that works for any household under current law, sorted by label. The US menu lists CliffWatch, Coverage Compass, GiveCalc, the marriage calculator, the QBI deduction calculator, the SPM threshold calculator and the TANF calculator; the UK menu lists the marriage calculator, the student loan calculator and UK CliffWatch; other countries get no menu. Every row is a full page load, because the PolicyEngine app is on its own domain and each tool runs as its own app on policyengine.org. New exports: `policyEngineTools`, `getPolicyEngineTools`, `getPolicyEngineAppUrl`, `POLICYENGINE_APP_LABEL`, `DEFAULT_POLICYENGINE_APP_URL` and the `PolicyEngineTool`, `PolicyEngineToolLink` and `NavItemChildConfig` types. `getPolicyEngineNavItems` takes an optional app URL as its third argument, and `PolicyEngineHeader` and `PolicyEngineShell` an `appUrl` prop. `SheetContent` takes `overlayClassName` and `overlayStyle` for its dimmed overlay. `NavItemConfig` items and their dropdown rows take a new `external` flag that renders a plain link, bypassing `linkComponent` and `onNavigate`; rows inherit it from their item unless they set their own.
+
+### Changed
+
+- Header dropdowns now widen to fit their longest row, up to 28rem or the viewport width less 32px, instead of wrapping every row at 220px. A dropdown that would run past either edge of the viewport moves sideways to stay 16px inside it.
+
+### Fixed
+
+- Releases publish to npm through trusted publishing, with this repository's GitHub Actions identity, instead of a stored npm token.
+- The mobile header menu now scrolls its links when they are taller than the screen, so Donate and other low items stay reachable on short phones, while the menu's title and close button stay in place. The menu and its dimmed overlay now sit above the sticky header instead of under it.
+
+
 ## [0.12.1] - 2026-06-10
 
 ### Fixed
