@@ -271,57 +271,123 @@
     {
       "path": "geo/tl_2026_01_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_01_cd120.zip",
-      "sha256": "0fff80891184520f63889f24d2dbee39ae3489358399702d8c3470d55ae9a508"
+      "contents": {
+        "tl_2026_01_cd120.dbf": "405914c41893ad2da2429b0503c2710b1da08a15e4558e88dbf37ed6650124b5",
+        "tl_2026_01_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_01_cd120.shp": "ee511f28c9e7ac1064b76be350fc1c5037c1c2f180ac0ef8fd046381b42c96f5",
+        "tl_2026_01_cd120.shx": "fcfa2d3e5ce3d46345db386af207af1dade988c055f79c8ca7c0d552c4910a5d"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/tl_2026_06_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_06_cd120.zip",
-      "sha256": "5d441c64cb33ba3f6d8dee1be2ce5f7c1efa502f245ac67c36344de2567d4269"
+      "contents": {
+        "tl_2026_06_cd120.dbf": "4d510dc9f47858bf5f8db2887610c8f5be5da99855acb699933c3f37a673bf80",
+        "tl_2026_06_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_06_cd120.shp": "4d9d7ef1ba1fb53c83747bf7df8d48d02cfad1488e9e147c26048eebf4ae6ce3",
+        "tl_2026_06_cd120.shx": "aff601d0dfe7ad91b275d2f5e84936bc5e2b1101b3ce465b804e8581c9fd4bc8"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/tl_2026_12_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_12_cd120.zip",
-      "sha256": "7d22cba78f6553e192fca414e78f96c07d2a38e96cdd6450e39b9c3ceed9a2f4"
+      "contents": {
+        "tl_2026_12_cd120.dbf": "f194194018e1ff4b45a6d4f522d1ba6c73e73a9b6da018f15fe5dfb803a65484",
+        "tl_2026_12_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_12_cd120.shp": "0de32f1dea131c4945e734a0a33cdd610499f4e6ce83d54014101e565705321b",
+        "tl_2026_12_cd120.shx": "01b8b5a04b95cd40a4b32bddab18d09bdf3d13533e8a8a9fea41a07d711faa33"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/tl_2026_22_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_22_cd120.zip",
-      "sha256": "3e614ea60510318c5e30a62f7e33a47e672b335e060b3c8adf6de1d1299e2208"
+      "contents": {
+        "tl_2026_22_cd120.dbf": "5fec180a01bcf2fb08ce1e0d762cf54f8400ad00c7a74b1b1c74d72c9850e81e",
+        "tl_2026_22_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_22_cd120.shp": "bbb5a04693d17105d5a50bcb1f2f1e3cab7645b4025d3297e3ac706249289914",
+        "tl_2026_22_cd120.shx": "64084ad7e026da85747049f0cd784d46d999a4e26392791a82dba0d88ef58d6c"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/tl_2026_37_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_37_cd120.zip",
-      "sha256": "13f0680937b2fb426c50b07bfd6dd473a541cee69fa39d512759dd03e787b9ef"
+      "contents": {
+        "tl_2026_37_cd120.dbf": "ef8f67bce840f090ba7e3af41be8f26594275ae19dc8349f806fbf96909614d5",
+        "tl_2026_37_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_37_cd120.shp": "a81821e842436eebf3b1a50486832962893d46f6157bfb1a55c93976dc71cc5e",
+        "tl_2026_37_cd120.shx": "5dedb1ace67175d794a00790658c534539fb8703d7c5313cd16e44e8b8050fba"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/tl_2026_39_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_39_cd120.zip",
-      "sha256": "4c18b9422c82639e078dacc4df32cdfa61689b1e2f92ec5b232b4ba3a2b3421b"
+      "contents": {
+        "tl_2026_39_cd120.dbf": "d317a26cb0f33ae45640d02f2f4e36b29ccd4588b30c1e59330ea3795e2fbf03",
+        "tl_2026_39_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_39_cd120.shp": "5ef416a96e3c2533c19fdb033f0fc041baeed83b86455505a9518a68f2f87522",
+        "tl_2026_39_cd120.shx": "c38e30e3468228288dd33ad51dd4b58284b331073adbd07d3620a48119a9a5e6"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/tl_2026_47_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_47_cd120.zip",
-      "sha256": "a1f017ae34e3a335492ded7572ec69f3d7e193ffbc144a9269fb7e1b8803d0fe"
+      "contents": {
+        "tl_2026_47_cd120.dbf": "f0f1bade3374a80659bf9843de1d6f3b46ab91c92b4e02d54ff3e3901e5d1036",
+        "tl_2026_47_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_47_cd120.shp": "7ea7261d4e80c41ec0d33ab6d2fd05a1403328d7d9f5654aba5f502679726187",
+        "tl_2026_47_cd120.shx": "c6b7a15b72151174f84e12bce1a1ad0b8502c2fbd395ed1afcf23471f6e42f06"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/tl_2026_48_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_48_cd120.zip",
-      "sha256": "3edba357705cbd64be72db0296c8d49d1d5e1fbaa1b3c2b55556c2e633d42c7f"
+      "contents": {
+        "tl_2026_48_cd120.dbf": "c5bfff8fe21054601ec70ea39d300774b28a6263e9a5da7f0e9b8bd3cec9137a",
+        "tl_2026_48_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_48_cd120.shp": "379e64887398b4faeb540c1aa7777ddbfbc9e0139b22290fc2c28c3f62f88fa2",
+        "tl_2026_48_cd120.shx": "3ba028d595d1ce0483f51ba07dbaf5c788d0577a4f59844378ae225379299d2b"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/tl_2026_49_cd120.zip",
       "url": "https://www2.census.gov/geo/tiger/TIGER2026/CD/tl_2026_49_cd120.zip",
-      "sha256": "0222fbf567b75aadcf7c12c43fadf49050ae381fb4e69ae6566c76709d480223"
+      "contents": {
+        "tl_2026_49_cd120.dbf": "ea54eefd80ef4c8b376e5771cfe7d250f96d8c9a918e0964c90c8d8b2bc4a30f",
+        "tl_2026_49_cd120.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "tl_2026_49_cd120.shp": "966a45899bb0f854c273423fabcbec12e16091ae54b2d141fc7a2b555e371c25",
+        "tl_2026_49_cd120.shx": "a6b0861160be922730a3bc34618e494939660c610b04f17721c538c21d4ae70b"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/cb_2024_us_state_500k.zip",
       "url": "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_state_500k.zip",
-      "sha256": "3e81cbb6cf5f60d9b01ef3e730afa14d61ce5f784252a0b33a696135e71447bc"
+      "contents": {
+        "cb_2024_us_state_500k.dbf": "3a1e76f66318401a9537c05ce8b5423aac4658357818d8ef00b17bc5a3012b01",
+        "cb_2024_us_state_500k.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "cb_2024_us_state_500k.shp": "52255f85f7260b9d1a508f9b36090c6cccb9285bcbbab49467d3915b2d6fa689",
+        "cb_2024_us_state_500k.shx": "d5c168f4528d032110627162522bbde60f5db8250598b1313a19bb20a3bcdb95"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/cb_2024_us_cd119_500k.zip",
       "url": "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_cd119_500k.zip",
-      "sha256": "2b4238aed7e865df75d0c9cfcd8dffa1b79007b24519ecc4b213e683078b031a"
+      "contents": {
+        "cb_2024_us_cd119_500k.dbf": "6038ba9016ac8f3110d500ced696cb98dc6fc1b5b0e9fa91787447c0dfd96779",
+        "cb_2024_us_cd119_500k.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+        "cb_2024_us_cd119_500k.shp": "abc2bf5c0ebf7c557e2bb252f6e905cd72db1ab5d2d7514ee5ee9600df5b71e9",
+        "cb_2024_us_cd119_500k.shx": "00d401ab0db7fcbdc86451a5356c484c8973a0abfe6e2297561646577aef5be2"
+      },
+      "note": "Census republishes its shapefile zips with new timestamps (the TIGER/Line 2026 files on 2026-11-09) and unchanged files inside, so this entry pins the files mapshaper reads, not the zip"
     },
     {
       "path": "geo/2020_Gaz_tracts_national.zip",
@@ -333,7 +399,9 @@
       "path": "hex/hexcd_v32.zip",
       "url": "https://drive.usercontent.google.com/download?id=18acMZLOjpQlyj_c-2q0QktmcsjM6Obrk&export=download&confirm=t",
       "sha256": "e1ed4b77f39f41187415c8b2ae5cfeff17d48e9985c64eb469abbff2c4c4e0bb",
-      "note": "The Downballot congressional district hexmap v3.2 (2026), CC BY 4.0; linked from https://www.the-downballot.com/p/data"
+      "note": "The Downballot congressional district hexmap v3.2 (2026), CC BY 4.0. The URL is a Google Drive download; if it stops working, download the v3.2 file from the landing page and check it against this SHA-256",
+      "landing_page": "https://www.the-downballot.com/p/data"
     }
-  ]
+  ],
+  "contents_checked": "2026-11-23"
 }

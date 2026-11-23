@@ -8,7 +8,7 @@ mkdir -p "$WORK"/{bef,pl,geo,hex}
 cd "$WORK"
 
 python - "$HERE/sources.json" <<'EOF'
-import hashlib, json, os, sys, urllib.request
+import hashlib, json, os, sys, urllib.request, zipfile
 sources = json.load(open(sys.argv[1]))
 for entry in sources["files"]:
     path = entry["path"]
@@ -18,9 +18,18 @@ for entry in sources["files"]:
         with urllib.request.urlopen(req, timeout=900) as r, open(path, "wb") as f:
             while chunk := r.read(1 << 20):
                 f.write(chunk)
-    digest = hashlib.sha256(open(path, "rb").read()).hexdigest()
-    if digest != entry["sha256"]:
-        sys.exit(f"{path}: SHA-256 {digest} does not match {entry['sha256']}")
+    if "contents" in entry:
+        # Census republishes shapefile zips with new timestamps and the same files inside,
+        # so these entries pin the files inside the zip.
+        with zipfile.ZipFile(path) as zf:
+            for member, want in entry["contents"].items():
+                digest = hashlib.sha256(zf.read(member)).hexdigest()
+                if digest != want:
+                    sys.exit(f"{path}: {member} SHA-256 {digest} does not match {want}")
+    else:
+        digest = hashlib.sha256(open(path, "rb").read()).hexdigest()
+        if digest != entry["sha256"]:
+            sys.exit(f"{path}: SHA-256 {digest} does not match {entry['sha256']}")
 print(f"{len(sources['files'])} source files present and verified")
 EOF
 
