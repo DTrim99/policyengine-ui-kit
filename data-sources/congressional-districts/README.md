@@ -80,10 +80,11 @@ python fetch_members.py    # src/visualization/data/congressionalDistrictMembers
 - **Called races.** A candidate marked as the winner gives the district its name and party letter: D, R, I, L or G. Minnesota's Democratic–Farmer–Labor Party shows as D, and `party_name` keeps its full name.
 - **Fusion tickets.** New York and Connecticut candidates who run on several party lines appear as "Democratic/WFP" or "Republican/Cons.". The first party, the candidate's own, gives the letter.
 - **Uncalled races.** A district with no marked winner is `not_yet_called`.
+- **Held races.** `HOLD` in the script keeps a race `not_yet_called` when the page marks a winner but no news organization has called it. MN-01 is held: the page marks Jake Johnson (DFL) as the winner by 50.0% to 49.9%, but the AP has not called the race and a recount is scheduled for November 30, 2026. Remove an entry once the race is called or certified.
 - **Provenance.** The file records when the page was read and which revision it read.
 
 **Snapshots:**
-- **Packaged now:** read November 23, 2026 (revision 1387342200). 433 races called (260 D, 173 R); 3 not yet called (LA-05, LA-06, MN-01).
+- **Packaged now:** read November 24, 2026 (revision 1387547895). 433 races called (260 D, 173 R); 3 not yet called (LA-05, LA-06, and MN-01, which is held).
 - **First:** read November 5, 2026. 406 races called (253 D, 153 R) and 30 not yet called. News totals that morning were 252 D, 158 R and 25 uncalled.
 
 - **Before every merge to main:** rerun the script. A merge with a changelog fragment publishes to npm, so the snapshot in the merge is the one users get.

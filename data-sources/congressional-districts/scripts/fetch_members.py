@@ -50,6 +50,12 @@ PARTIES = {
     "Libertarian": ("L", "Libertarian"),
     "Green": ("G", "Green"),
 }
+# Races the page marks as won that no news organization has called yet. They stay
+# "not_yet_called" until a call or the certified result; remove an entry once that happens.
+HOLD = {
+    "MN-01": "the page marks Jake Johnson (DFL) as the winner, 50.0% to 49.9%, but the AP has not "
+    "called it and a recount is scheduled for November 30, 2026 (checked November 24, 2026)",
+}
 ROW = re.compile(r"\{\{ushr\|([A-Z]{2})\|([A-Za-z0-9]+)\|X\}\}")
 WINNER = re.compile(r"\{\{\s*aye\s*\}\}", flags=re.I)
 
@@ -63,11 +69,21 @@ def read_page(saved):
 
 
 def sections(wikitext):
-    heads = [(m.start(), m.group(1).strip()) for m in re.finditer(r"^==\s*([^=].*?)\s*==\s*$", wikitext, flags=re.M)]
+    """Each state's section, and "Non-voting delegates".
+
+    The page has had these at level 2 (== Alabama ==) and, since November 24, 2026, at level 3
+    under "Elections in individual states". A section runs to the next heading at its own level
+    or higher.
+    """
+    heads = [
+        (m.start(), len(m.group(1)), m.group(2).strip())
+        for m in re.finditer(r"^(={2,6})\s*([^=].*?)\s*\1\s*$", wikitext, flags=re.M)
+    ]
     out = {}
-    for i, (start, name) in enumerate(heads):
+    for i, (start, level, name) in enumerate(heads):
         if name in STATES or name == DELEGATES:
-            out[name] = wikitext[start: heads[i + 1][0] if i + 1 < len(heads) else len(wikitext)]
+            end = next((s for s, lv, _ in heads[i + 1:] if lv <= level), len(wikitext))
+            out[name] = wikitext[start:end]
     missing = [s for s in STATES + [DELEGATES] if s not in out]
     assert not missing, f"no section for {missing}"
     return out
@@ -135,6 +151,10 @@ def main():
     assert set(members) == set(keys), (sorted(set(keys) - set(members)), sorted(set(members) - set(keys)))
     if problems:
         raise SystemExit("\n".join(problems))
+    for d, why in HOLD.items():
+        if members[d]["status"] == "called":
+            print(f"holding {d} as not yet called: {why}")
+            members[d] = {"status": "not_yet_called", "name": None, "party": None, "party_name": None}
     districts = {
         d: {"label": keys[d]["label"], **members[d]}
         for d in sorted(members)
